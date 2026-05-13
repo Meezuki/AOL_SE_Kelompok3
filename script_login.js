@@ -1,51 +1,37 @@
-const form = document.getElementById('form')
-const username = document.getElementById('username')
-const password = document.getElementById('password')
-const email = document.getElementById('email')
-const conPassword = document.getElementById('conPassword')
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Mencegah reload halaman
 
-function validateRegister(event){
-    event.preventDefault();
-    let valid = true;
+    const loginId = document.getElementById('login_id').value;
+    const password = document.getElementById('password').value;
 
-    if (username.value.length < 5){
-        valid = false;
-        alert('Username length must be more than 4')
-    }
-    else if(!email.value.endsWith('@gmail.com')){
-        valid = false;
-        alert('Email is not valid, only gmail')
-    }
-    else if(!isAlphaNum(password.value)){
-        valid = false;
-        alert('Password must contains both number and letter')
-    }
-    else if((password.value != conPassword.value)){
-        valid = false;
-        alert('password is wrong')
-    }
+    try {
+        const response = await fetch('login_api.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                login_id: loginId,
+                password: password
+            })
+        });
 
-    if(valid){
-        document.getElementById("myButton").onclick = function () {
-            location.href = "homepage.html";
-        };
-    }
-}
+        const result = await response.json();
 
-function isAlphaNum(password){
-    let Alpha = false;
-    let Number = false;
+        if (result.status === 'success') {
+            alert(result.message);
+            
+            // Simpan data user di memori browser (localStorage)
+            localStorage.setItem('userSession', JSON.stringify(result.data));
 
-    for(let i=0; i<password.length; i++){
-        if(isNaN(password[i])){
-            Alpha = true;
+            // Arahkan ke halaman utama setelah login
+            window.location.href = 'homepage.html'; 
+            
+        } else {
+            alert("Gagal: " + result.message);
         }
-        else{
-            Number = true;
-        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert("Terjadi kesalahan saat menghubungi server.");
     }
-
-    return Alpha && Number;
-}
-
-form.addEventListener('submit',validateRegister)
+});
