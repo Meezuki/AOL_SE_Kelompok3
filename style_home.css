@@ -341,3 +341,16 @@ body {
     color: #777;
     font-size: 12px;
 }
+
+.hero-section {
+    margin-top: 80px; 
+    height: 80vh;
+    background-size: cover; /* Ini wajib agar gambar terlihat */
+    background-position: center; /* Ini wajib agar gambar di tengah */
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    transition: background-image 1s ease-in-out;
+}
