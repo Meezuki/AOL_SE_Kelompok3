@@ -155,7 +155,7 @@ async function renderEODashboard(container, userId) {
                 <div class="table-section">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <h3>Applicant Management</h3>
-                        <button class="btn-approve" style="padding: 10px 20px; border-radius: 5px; border:none; cursor:pointer;" onclick="alert('Fitur Create Event sedang dikembangkan!')">+ Create New Event</button>
+                        <button class="btn-approve" style="padding: 10px 20px; border-radius: 5px; border:none; cursor:pointer;" onclick="window.location.href='create_event.html'">+ Create New Event</button>
                     </div>
                     <table>
                         <thead>

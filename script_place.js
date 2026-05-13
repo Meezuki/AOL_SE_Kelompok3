@@ -109,6 +109,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
+// --- FITUR SEARCH & SORT ---
+    const searchInput = document.querySelector('.search-container input');
+    const searchBtn = document.querySelector('.search-container button');
+    const sortDropdown = document.querySelector('.sort-dropdown');
+
+    // Fungsi Search
+    function handleSearch() {
+        const query = searchInput.value.toLowerCase();
+        currentEvents = allEvents.filter(event => 
+            event.title.toLowerCase().includes(query) || 
+            event.location.toLowerCase().includes(query)
+        );
+        currentPage = 1;
+        renderEvents();
+    }
+
+    // Trigger search saat tombol diklik atau tekan Enter
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', handleSearch);
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') handleSearch();
+        });
+    }
+
+    // Fungsi Sort
+    if (sortDropdown) {
+        sortDropdown.addEventListener('change', (e) => {
+            const sortBy = e.target.value;
+            
+            if (sortBy === 'newest') {
+                currentEvents.sort((a, b) => new Date(b.event_date) - new Date(a.event_date));
+            } else if (sortBy === 'oldest') {
+                currentEvents.sort((a, b) => new Date(a.event_date) - new Date(b.event_date));
+            } else {
+                // Default Sorting (kembalikan ke urutan awal ID)
+                currentEvents.sort((a, b) => a.id - b.id);
+            }
+            
+            currentPage = 1;
+            renderEvents();
+        });
+    }
+
+
     // Jalankan fungsi tarik data saat halaman diload
     fetchEvents();
 
