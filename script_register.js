@@ -1,67 +1,20 @@
-const form = document.getElementById('form')
-const username = document.getElementById('username')
-const password = document.getElementById('password')
-const email = document.getElementById('email')
-const conPassword = document.getElementById('conPassword')
-const dob = document.getElementById('dob')
-const male = document.getElementById('male')
-const female = document.getElementById('female')
-const agreement = document.getElementById('agreement')
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+    const password = document.getElementById('password').value;
+    const conPassword = document.getElementById('conPassword').value;
+    const agreement = document.getElementById('agreement').checked;
 
-function validateRegister(event){
-    event.preventDefault();
-    let valid = true;
-
-    if (username.value.length < 5){
-        valid = false;
-        alert('Username length must be more than 4')
-    }
-    else if(!email.value.endsWith('@gmail.com')){
-        valid = false;
-        alert('Email is not valid, only gmail')
-    }
-    else if(!isAlphaNum(password.value)){
-        valid = false;
-        alert('Password must contains both number and letter')
-    }
-    else if((password.value != conPassword.value)){
-        valid = false;
-        alert('password is wrong')
-    }
-    else if(!dob.value){
-        valid = false;
-        alert('birthdate must be selected')
-    }
-    else if(!male.checked && !female.checked){
-        valid = false;
-        alert('you must understand whether you are binusian or not!')
-    }
-    else if(!agreement.checked){
-        valid = false;
-        alert('agreement must be checked')
+    if (password !== conPassword) {
+        e.preventDefault();
+        alert("Passwords do not match!");
+        return;
     }
 
-    if(valid){
-        document.getElementById("myButton").onclick = function () {
-            location.href = "homepage.html";
-        };
-    }
-}
-
-function isAlphaNum(password){
-    let Alpha = false;
-    let Number = false;
-
-    for(let i=0; i<password.length; i++){
-        if(isNaN(password[i])){
-            Alpha = true;
-        }
-        else{
-            Number = true;
-        }
+    if (!agreement) {
+        e.preventDefault();
+        alert("You must agree to the terms and conditions.");
+        return;
     }
 
-    return Alpha && Number;
-}
-
-form.addEventListener('submit',validateRegister)
+    // Jika valid, data akan diteruskan ke proses pendaftaran
+    console.log("Form valid, ready to be sent to database.");
+});

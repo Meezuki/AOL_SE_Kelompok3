@@ -3,59 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B' Helpful Register Page</title>
-    <link rel="stylesheet" href="style_login.css">
-    <script src="script_login.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Kanit:ital@1&family=Orbitron:wght@400..900&family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400&display=swap" rel="stylesheet">
+    <title>B' Helpful - Log In</title>
+    <link rel="stylesheet" href="style_register.css"> <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="register-only-fullbody">
-    <nav class="register-navbar">
+<body class="register-body">
+    <nav class="auth-navbar">
         <img src="assets/b-helpful logo.jpeg" alt="B-Helpful Logo" class="logo">
-        <ul>
-            <li class="unpaged"><a href="registerpage.html">Sign up -></a></li>
-        </ul>
+        <a href="registerpage.html" class="nav-link-auth">Sign up &rarr;</a>
     </nav>
-    <div class="hero">
-    <section class="register-body">
 
-    <form action=" " method="POST" id="form">
-        <h1 class="register-title">Log In Account</h1>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
+    <div class="auth-container">
+        <section class="auth-form-section">
+            <form id="loginForm" class="auth-form">
+                <h2 class="form-title">Log In Account</h2>
+                
+                <div class="input-group">
+                    <label for="email">Email or Username</label>
+                    <input type="text" id="login_id" name="login_id" required>
+                </div>
 
-        <br>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
 
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email">
+                <button type="submit" class="btn-auth">Log In</button>
+                <p class="forgot-pass">Forgot password? <a href="#">Click here</a></p>
+            </form>
+        </section>
 
-        <br>
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
-
-        <br>
-
-        <label for="conPassword">Confirm Password</label>
-        <input type="password" id="conPassword" name="conPassword">
-
-        <button type="submit" id="myButton">log in</button>
-    </form>
-    </section>
-    <section class="regdesc">
-    <h1>
-      Berdampak bagi Sesama,<br>
-      Bangun Masa Depanmu.
-    </h1>
-
-    <p>
-      Powered by Bina Nusantara University
-    </p>
-
-    <img src="assets/logobinus.png" alt="Binus Logo" style="height: 200px; width: auto;">
-    </section>
+        <section class="auth-desc">
+            <h1>Selamat Datang Kembali!</h1>
+            <p>Lanjutkan kontribusi sosialmu dan kumpulkan jam Comserv dengan mudah.</p>
+            <img src="assets/logobinus.png" alt="Binus Logo" class="binus-logo-auth">
+        </section>
     </div>
 
     <script src="script_login.js"></script>
