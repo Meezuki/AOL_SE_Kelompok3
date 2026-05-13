@@ -49,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isFull = event.available_slots <= 0;
             const registeredCount = event.max_quota - event.available_slots;
 
+            const imgSrc = event.image_path ? event.image_path : 'assets/trash_hero_logo.png';
+
             // Tombol Daftar
             const btnDaftar = isFull 
                 ? `<button class="btn-daftar" disabled style="color: grey;"><i class="fa-solid fa-ban"></i> Penuh</button>`
@@ -61,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const eventHTML = `
                 <div class="event-item">
                     <div class="event-logo">
-                        <img src="assets/trash_hero_logo.png" alt="Event" onerror="this.style.display='none'">
+                        <img src="${imgSrc}" alt="${event.title}" onerror="this.style.display='none'" >
                     </div>
                     <div class="event-datetime">
                         <h4>${dateStr}</h4>

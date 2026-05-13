@@ -2,31 +2,40 @@
 header('Content-Type: application/json');
 require 'db.php';
 
-$data = json_decode(file_get_contents("php://input"), true);
-
-if(
-    isset($data['title']) && isset($data['description']) && 
-    isset($data['location']) && isset($data['event_date']) && 
-    isset($data['max_quota']) && isset($data['hours_reward']) && 
-    isset($data['created_by'])
-) {
-    $title = $data['title'];
-    $description = $data['description'];
-    $location = $data['location'];
+// Cek apakah data POST masuk
+if(isset($_POST['title']) && isset($_POST['created_by'])) {
     
-    // Sesuaikan format datetime dari HTML agar cocok dengan MySQL (YYYY-MM-DD HH:MM:SS)
-    $event_date = str_replace('T', ' ', $data['event_date']) . ':00'; 
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $location = $_POST['location'];
+    $event_date = str_replace('T', ' ', $_POST['event_date']) . ':00'; 
+    $max_quota = (int)$_POST['max_quota'];
+    $available_slots = $max_quota;
+    $hours_reward = (int)$_POST['hours_reward'];
+    $created_by = (int)$_POST['created_by'];
     
-    $max_quota = (int)$data['max_quota'];
-    $available_slots = $max_quota; // Saat awal dibuat, slot tersedia = kuota maksimal
-    $hours_reward = (int)$data['hours_reward'];
-    $created_by = (int)$data['created_by'];
+    // Logika Upload Gambar
+    $image_path = 'assets/trash_hero_logo.png'; // Default image
 
-    $query = "INSERT INTO events (title, description, location, event_date, max_quota, available_slots, hours_reward, created_by) 
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        $uploadDir = 'assets/uploads/';
+        
+        // Buat nama file unik agar tidak bentrok
+        $fileName = time() . '_' . basename($_FILES['image']['name']);
+        $targetFilePath = $uploadDir . $fileName;
+        
+        // Pindahkan gambar dari temp ke folder uploads
+        if(move_uploaded_file($_FILES['image']['tmp_name'], $targetFilePath)) {
+            $image_path = $targetFilePath; // Simpan path baru untuk database
+        }
+    }
+
+    // Insert ke Database
+    $query = "INSERT INTO events (title, description, image_path, location, event_date, max_quota, available_slots, hours_reward, created_by) 
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
               
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ssssiiii", $title, $description, $location, $event_date, $max_quota, $available_slots, $hours_reward, $created_by);
+    $stmt->bind_param("sssssiiii", $title, $description, $image_path, $location, $event_date, $max_quota, $available_slots, $hours_reward, $created_by);
 
     if ($stmt->execute()) {
         echo json_encode(["status" => "success", "message" => "Event berhasil dipublikasikan!"]);
