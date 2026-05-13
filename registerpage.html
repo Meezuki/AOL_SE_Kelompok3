@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B' Helpful Register Page</title>
+    <link rel="stylesheet" href="style_register.css">
+    <script src="script_register.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Kanit:ital@1&family=Orbitron:wght@400..900&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400&display=swap" rel="stylesheet">
+</head>
+<body class="register-only-fullbody">
+    <nav class="register-navbar">
+        <img src="assets/b-helpful logo.jpeg" alt="B-Helpful Logo" class="logo">
+        <ul>
+            <li class="unpaged"><a href="loginpage.html">Log in -></a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+    <section class="regdesc">
+    <h1>
+      Berdampak bagi Sesama,<br>
+      Bangun Masa Depanmu.
+    </h1>
+
+    <p>
+      Powered by Bina Nusantara University
+    </p>
+
+    <img src="assets/logobinus.png" alt="Binus Logo" style="height: 200px; width: auto;">
+    </section>
+
+    <section class="register-body">
+
+    <form action=" " method="POST" id="form">
+        <h1 class="register-title">Create Account</h1>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
+
+        <br>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+
+        <br>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+
+        <br>
+
+        <label for="conPassword">Confirm Password</label>
+        <input type="password" id="conPassword" name="conPassword">
+
+        <br>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob">
+
+        <br>
+
+        <label for="Gender">User Kinds</label>
+        <input type="radio" name="gender" id="male">Binusian
+        <input type="radio" name="gender" id="female">Non-Binusian
+
+        <br><br>
+
+        <input type="checkbox" name="agreement" id="agreement"> I agree with the terms and conditions
+
+        <br><br>
+
+        <button type="submit" id="myButton">sign up now</button>
+    </form>
+    </section>
+    </div>
+
+    <script src="script_register.js"></script>
+</body>
+</html>

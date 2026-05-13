@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B' Helpful Places / Events Page</title>
+    <link rel="stylesheet" href="style_place.css">
+    <script src="script_place.js" defer></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="assets/b-helpful logo.jpeg" alt="B-Helpful Logo" class="logo">
+        <ul class="navlink">
+            <li class="unpaged"><a href="registerpage.html">Register</a></li>
+            <li class="unpaged"><a href="homepage.html">Home</a></li>
+            <li class="paged">Places</li>
+            <li class="unpaged"><a href="conpage.html">Contact</a></li>
+            <li class="unpaged"><a href="aboutpage.html">About</a></li>
+        </ul>
+        <img src="assets/menu_icon.png" alt="menu" class="menu-button">
+    </nav>
+
+    <main class="main-content">
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <button type="submit"><i class="fa-solid fa-search"></i></button>
+        </div>
+
+        <div class="events-container">
+            <div class="events-header">
+                <h2>Upcoming Events <i class="fa-solid fa-thumbs-up" style="color: #000; font-size: 20px; margin-left: 8px;"></i></h2>
+                <select class="sort-dropdown">
+                    <option value="default">Default Sorting</option>
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                </select>
+            </div>
+
+            <div class="events-list" id="eventsList">
+            </div>
+
+            <div class="pagination" id="paginationContainer">
+            </div>
+        </div>
+    </main>
+
+    <script src="script_place.js"></script>
+</body>
+</html>

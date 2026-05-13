@@ -1,0 +1,343 @@
+/* ==================================
+   GLOBAL & NAVBAR (Dari kodemu)
+================================== */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Manjari", sans-serif;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    box-shadow: 0 4px rgba(0,0,0,0.2);
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.navbar a {
+    all: unset;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.navlink {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navlink li {
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+.paged {
+    padding: 8px 15px;
+    background: #d2ffe3;
+    border-radius: 30px;
+    color: black;
+    font-weight: bold;
+}
+
+.unpaged {
+    padding: 8px 15px;
+    color: black;
+}
+
+.unpaged:hover {
+    background: #d3ffd285;
+    border-radius: 30px;
+}
+
+.menu-button {
+    display: none;
+}
+
+/* ==================================
+   GLOBAL BUTTONS & SECTIONS
+================================== */
+.btn-green {
+    display: inline-block;
+    background-color: #17a948;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+    transition: 0.3s ease;
+}
+
+.btn-green:hover {
+    background-color: #128236;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+.green-bg-section {
+    background: linear-gradient(to bottom, #a4e698, #8ee07f);
+    padding: 60px 0;
+}
+
+/* ==================================
+   HERO SECTION
+================================== */
+.hero-section {
+    margin-top: 80px; /* Offset navbar */
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    transition: background-image 1s ease-in-out; /* Animasi perpindahan gambar */
+}
+
+.hero-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.hero-card h1 {
+    font-size: 32px;
+    margin-top: 0;
+}
+
+.hero-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* ==================================
+   PLACES SECTION
+================================== */
+.places-section {
+    margin-bottom: 60px;
+}
+
+.places-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.place-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.place-card h3 {
+    font-size: 16px;
+    margin: 10px 0 5px 0;
+}
+
+.place-card .stars {
+    color: #17a948;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.place-card p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+/* ==================================
+   ABOUT SECTION
+================================== */
+.about-section {
+    display: flex;
+    max-width: 1200px;
+    margin: 80px auto;
+    align-items: center;
+    gap: 50px;
+    padding: 0 40px;
+}
+
+.about-img-container {
+    flex: 1;
+}
+
+.about-img-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.about-text-container {
+    flex: 1;
+}
+
+.about-text-container h2 {
+    font-size: 36px;
+    color: #17a948;
+    margin-top: 0;
+}
+
+.about-text-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* ==================================
+   REVIEWS SECTION
+================================== */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.review-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.quote-icon {
+    font-size: 24px;
+    color: #17a948;
+    margin-bottom: 15px;
+}
+
+.review-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    min-height: 100px;
+}
+
+.review-card .stars {
+    color: #17a948;
+    margin: 15px 0;
+}
+
+.reviewer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reviewer img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.reviewer h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* ==================================
+   FOOTER
+================================== */
+.main-footer {
+    background-color: #0b0b0b;
+    color: white;
+    padding: 50px 40px 20px 40px;
+}
+
+.main-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 30px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-col p {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.app-buttons img {
+    height: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.footer-col ul li:hover {
+    color: white;
+}
+
+.footer-col ul li i {
+    margin-left: 5px;
+    color: #17a948;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    margin-top: 20px;
+    color: #777;
+    font-size: 12px;
+}

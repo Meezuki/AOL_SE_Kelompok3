@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #ffffff;
+    box-shadow: 0 4px rgba(0,0,0,0.2);
+}
+
+.navbar a{
+    all: unset;
+    color: whitesmoke;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.navlink {
+    display: flex;
+    align-items: center;
+}
+
+.navlink li {
+    margin: 0 30px;
+    font-family: "Manjari";
+    font-size: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+    display: block;
+    padding-left: 20px;
+}
+
+.paged {
+    padding: 8px 15px;
+    background: #d2ffe3;
+    border-radius: 30px;
+    color: black;
+    font-weight: bold;
+}
+
+.unpaged {
+    padding: 8px 15px;
+    color: black;
+}
+
+.unpaged a{
+    color: inherit;
+}
+
+.unpaged:hover {
+    background: #d3ffd285;
+    border-radius: 30px;
+    color: black;
+}
+
+.menu-button {
+    position: sticky;
+    top: 3vmin;
+    right: 3vmin;
+    height: 4vmin;
+    width: 4vmin;
+    cursor: pointer;
+    display: none;
+}

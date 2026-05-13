@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.register-only-fullbody{
+    background-image: url("assets/volun.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.register-navbar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #ffffff;
+    box-shadow: 0 4px rgba(0,0,0,0.2);
+}
+
+.register-navbar a{
+    all: unset;
+    color: whitesmoke;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 3vmin;
+}
+
+ul {
+    list-style: none;
+    font-family: "Manjari";
+    margin: 3vmin;
+    margin-left: 12vmin;
+}
+
+.unpaged {
+    padding: 1vmin 2vmin;
+}
+
+.unpaged a{
+    color: inherit;
+}
+
+.unpaged:hover {
+    background: #d2ffd685;
+    border-radius: 3vmin;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+    display: block;
+    padding-left: 20px;
+}
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+    padding-right: 120px;
+    height: 100vh;
+    background-color: #62f751a3;
+}
+
+.register-body {
+    margin: 0;   
+    padding: 0;
+    font-family: "Manjari";
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-position: bottom;
+    background-size: cover;
+    height: 100vh;
+}
+
+.register-title {
+    text-align: center;
+    color: #000000;
+    font-size: 5vmin;
+}
+    
+form {
+    background-color: #ffffff;
+    padding: 3vmin 4vmin;
+    border: 2px solid rgb(48, 124, 0);
+    border-radius: 12px;
+    width: 95%;
+    max-width: 400px;
+}
+    
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000000;
+    font-size: 3vmin;
+}
+    
+input[type="text"],
+input[type="password"],   
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ffff0a;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    font-family: "Orbitron";
+    background-color: #feffef;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus {
+    border-color: 1px solid #327c00;
+    outline: none;
+    font-family: "Orbitron";
+    background-color: #eefdec;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1c8200;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: "Poppins";
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #125300;
+}
+
+@media only screen and (max-width: 450px) {
+    form {
+        border-radius: 0;
+    }
+}
+
+.regdesc {
+    color: white;
+    font-family: "Poppins";
+    text-align: center;
+    justify-content: center;
+    padding-left: 120px;
+}
