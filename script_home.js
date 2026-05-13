@@ -21,4 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Jalankan pergantian gambar setiap 5 detik (5000 milidetik)
     setInterval(cycleHeroImage, 3000);
+
+
+    const sessionData = localStorage.getItem('userSession');
+    if (sessionData) {
+    const user = JSON.parse(sessionData);
+    // Cari elemen menu Account/Login di navbar
+    const navLinks = document.querySelector('.navlink');
+    // Ganti teks "Account" atau tambahkan link "Dashboard"
+    const accountLink = document.querySelector('a[href="loginpage.html"]');
+    if (accountLink) {
+        accountLink.innerText = "Dashboard";
+        accountLink.href = "dashboard.html";
+    }
+}
 });

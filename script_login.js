@@ -25,7 +25,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             localStorage.setItem('userSession', JSON.stringify(result.data));
 
             // Arahkan ke halaman utama setelah login
-            window.location.href = 'homepage.html'; 
+            window.location.href = 'dashboard.html'; 
             
         } else {
             alert("Gagal: " + result.message);
